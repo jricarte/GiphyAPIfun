@@ -1,11 +1,16 @@
-* {
-    font-family: 'Josefin Slab', serif;
-}
-
 body {
-    background-image:
+    background-image: url("https://wallpaperscraft.com/image/the_office_tv_series_steve_carell_boss_96802_1920x1080.jpg");
 }
 
-.card-body {
-    background: orange
+.card{
+    background: black
+}
+
+h5 {
+    color: white
+}
+
+#header {
+    text-align: center;
+    margin-left: 200px
 }
