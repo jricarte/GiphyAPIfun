@@ -1,109 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
 <head>
-	<title>The Office Gif Generator!</title>
+    <title>The Office Gif Generator!</title>
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/lux/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
 
-	<!--Bootswatch link-->
-    <!-- <link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/darkly/bootstrap.min.css"> -->
-        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/lux/bootstrap.min.css">
-	<!--Google Fonts-->
-<link href="https://fonts.googleapis.com/css?family=Josefin+Slab&display=swap" rel="stylesheet">
-	<!--External css file-->
-	<link rel="stylesheet" type="text/css" href="assets/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-	<!--JQuery link-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-	<!--Font Awesome link-->
-	<script src="https://use.fontawesome.com/abd289e58f.js"></script>
+    <script src="https://use.fontawesome.com/abd289e58f.js"></script>
 </head>
 
 <body>
-	<div class="container">
-		<div class="row">
-			<div id="header">
-				<!--Site header-->
-				<div class="card mb-4 bg-primary">
-					<div class="card-body">
-					    <h1 class="card-title">The Office</h1>
-					    <h5 class="card-text">Search for gifs of your favorite Dunder Mifflin Employees!</h5>
-					</div>
-				</div>
-			</div>
-		</div>
+    <div class="container">
+        <div class="row">
+            <div id="header">
+                <div class="card mb-4 bg-primary">
+                    <div class="card-body">
+                        <h1 class="card-title">The Office</h1>
+                        <h5 class="card-text">Search for gifs of your favorite Dunder Mifflin Employees!</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-		<div class="row">
-			<!--Create a placeholder section/div to hold the buttons-->
-			<div class="col-md-7 col-sm-12 col-xs-12 mb-2" id="giphy-buttons">
-				<div class="card">
-				  <div class="card-header bg-primary text-white">
-				    <h5>Click on your favorite!</h5>
-				  </div>
-				  <!--New buttons created by the user will get dumped here-->
-				  <div class="card-body bg-secondary" id="employee-btn-div">
-				  </div>
-				</div>
-			</div>
+        <div class="row">
+            <div class="col-md-7 col-sm-12 col-xs-12 mb-2" id="giphy-buttons">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5>Click on your favorite!</h5>
+                    </div>
+                    <div class="card-body bg-secondary" id="employee-btn-div">
+                    </div>
+                </div>
+            </div>
 
-			<div class="col-md-5 col-sm-12 col-xs-12 mb-2">
-				<!--Create a search box and submit/add button-->
-				<div class="card">
-					<div class="card-header bg-primary text-white">
-						<h5>Add more!</h5>
-					</div>
-					<div class="card-body bg-secondary">
-						<p>Add your other favorite Dunder Mifflin employees</p>
-						<form class="form-inline my-2 my-lg-0">
-							<input class="form-control mr-sm-2" type="search" placeholder="Michael Scott" aria-label="Search" id="employee-input">
-		      				<button class="btn btn-dark my-2 my-sm-0" type="submit" id="submit-button"><i class="fa fa-plus" aria-hidden="true"></i></button>
-		    			</form>
-					</div>
-				</div>
-			</div>
-		</div>
+            <div class="col-md-5 col-sm-12 col-xs-12 mb-2">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5>Add more!</h5>
+                    </div>
+                    <div class="card-body bg-secondary">
+                        <p>Add your other favorite Dunder Mifflin employees</p>
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Michael Scott"
+                                aria-label="Search" id="employee-input">
+                            <button class="btn btn-dark my-2 my-sm-0" type="submit" id="submit-button"><i
+                                    class="fa fa-plus" aria-hidden="true"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-		<div class="row pt-4">
-			<div class="col-md-12">
-				<!--Create a section for displaying the gif search results-->
-				<div class="card">
-					<div class="card-header bg-primary text-white">
-				    	<h5>Gif search results</h5>
-					</div>
-					<div class="card-body bg-secondary" id="results-div">
-						<div class="row">
-							<!--When the user clicks an employee button, tell the user to click a gif to play that gif. The user will need to click it again to pause. When the user clicks an employee button, that text will go here in the click-to-play-text div.-->
-							<div class="col-md-12" id="click-to-play-text">
-							</div>
-						</div>
+        <div class="row pt-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5>Gif search results</h5>
+                    </div>
+                    <div class="card-body bg-secondary" id="results-div">
+                        <div class="row">
+                            <div class="col-md-12" id="click-to-play-text">
+                            </div>
+                        </div>
 
-						<div class="row">
-							<!--The first three gifs retrieved from the GIPHY API call will go here in results-div-col1-->
-							<div class="col-xs-12 col-sm-12 col-md-4" id="results-div-col1">
-								
-							</div>
-							<!--The next four gifs retrieved from the GIPHY API call will go here in results-div-col2-->
-							<div class="col-xs-12 col-sm-12 col-md-4" id="results-div-col2">
-								
-							</div>
-							<!--The last three gifs retrieved from the GIPHY API call will go here in results-div-col3-->
-							<div class="col-xs-12 col-sm-12 col-md-4" id="results-div-col3">
-								
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-4" id="results-div-col1">
 
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-4" id="results-div-col2">
 
-	</div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-4" id="results-div-col3">
 
-<!--Link to Javascript file-->
-<script type="text/javascript" src="assets/giphy.js"></script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="assets/giphy.js"></script>
 </body>
+
 </html>
